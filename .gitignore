@@ -1,0 +1,9 @@
+*~
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.xmpi
+elemente
+!elemente/periodictable.asy
+!elemente/periodictable_*.pdf
