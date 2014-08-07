@@ -1,0 +1,26 @@
+% In dieser Datei wird der Kopf und Fuß für die Formelsammlung definiert
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\makeatletter
+
+\fancypagestyle{firstpage}{\fancyhf{}%
+\lhead{\includegraphics[height=1cm]{abslogo.png}}
+  \chead{\sffamily\bfseries\@title}
+\rhead{} 
+\lfoot{\includegraphics[height=0.7cm]{by-sa.png} \sffamily\tiny\@author}
+\cfoot{}
+\rfoot{\sffamily\tiny \selectlanguage{german}\@date}}
+
+\lhead{}
+\chead{\sffamily\bfseries\@title}
+\rhead{} 
+\fancyfoot{} % Fußzeile leeren
+\fancyfoot[RE,LO]{\sffamily\tiny \selectlanguage{german}\@date}
+\fancyfoot[RO,LE]{\sffamily Seite \thepage}
+\makeatother 
+
+\renewcommand{\headheight}{0.6in}
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrulewidth}{0.4pt}

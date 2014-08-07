@@ -1,0 +1,122 @@
+% Formatiere den Text als Artikel mit KOMA-Script
+% Schriftgröße ist 10 Punkt, zweispaltiges Layout
+\documentclass[10pt,twocolumn,twoside,BCOR=10mm,DIV=calc,headings=small,parskip=half]{scrartcl}
+
+% Normalerweise sollte man den Satzspiegel der Dokumentklasse überlassen. Bei
+% zweispaltigem Layout ist mir aber der Randbereich zu groß
+%\typearea{14}
+
+% Englische und deutsche Übersetzungen von vordefinierten Bezeichnungen
+\usepackage[english,german]{babel}
+
+% Zeichensatz der Texte - Editor muss in UTF-8 kodiert speichern
+\usepackage[utf8]{inputenc}
+
+% erweiterte Befehle zur Formatierung von Formeln und mathematischem Inhalt 
+\usepackage{amsmath}
+
+% Befehle zum Einbinden von Grafiken und Bildern
+\usepackage{graphicx}
+
+%
+%\usepackage{textcomp}
+
+% zeigt Querverweise und Markierungen an
+%\usepackage{showkeys}
+
+% Provides commands for the geralpha.bst,...
+%\usepackage{bibgerm}
+
+
+\title{Formelsammlung Physik und Chemie}
+\author{B. Süssmann,  J. Laumann}
+
+
+% Provides hyperlinks and PDF output formatting
+\usepackage[colorlinks=false,pdfborder={0 0 0}]{hyperref}
+\makeatletter
+\hypersetup{
+ pdftitle={\@title},
+ pdfsubject={},
+ pdfkeywords={}
+ pdfauthor={\@author},
+}
+\makeatother
+
+  
+% SI-Einheiten mit den Befehlen \SI und \si richtig formatieren
+\usepackage{siunitx}
+\sisetup{
+ % SI-Einheiten werden mit Dezimal-PUNKT angegeben (könnte man ändern, gefällt
+ % mir aber so besser, weil das Zusammenspiel mit CAS und anderen Programmen
+ % besser funktioniert) - die Ausgabe erfolgt aber wie im deutschen Sprachraum
+ % mit Dezimalkomma
+ output-decimal-marker = {,},
+ % in wissenschaftlicher Schreibweise soll zwischen Mantisse und Exponent ein
+ % Multiplikationspunkt stehen
+ exponent-product = \cdot,
+ % Einheiten mit Brüchen sollen als Brüche dargestellt werden
+ per-mode = fraction
+}
+
+\usepackage[version=3]{mhchem}
+
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+
+% XMP Metadaten einfügen
+\usepackage{xmpincl}
+\includexmp{metadata}
+
+% Abstand zwischen den Spalten im mehrspaltigen Layout
+\setlength{\columnsep}{1cm}
+
+% Linie der Breite 0.5 Punkt zwischen den Spalten 
+\setlength{\columnseprule}{0.5pt}
+
+\input{header.tex}
+
+% setze den Gleichungszähler mit jedem Abschnitt zurück
+% -> Gleichungsnumerierung (Abschnitt.Gleichung)
+\numberwithin{equation}{section}
+
+% hier beginnt das eigentliche Dokument
+\begin{document}
+\thispagestyle{firstpage}
+
+\section{Allgemeines}
+\subsection{Konstanten}
+\input{konstanten.tex}
+ 
+\subsection{Einheiten}
+\input{einheiten.tex}
+ 
+\subsection{Einheitenpräfixe}
+\input{sipraefixe.tex}
+ 
+\subsection{Griechische Buchstaben}
+\input{griechische_buchstaben.tex}
+
+\subsection{Mathematik}
+\input{mathematik.tex}
+ 
+\section{Mechanik}
+\input{mechanik.tex}
+ 
+\section{Elektrische und magnetische Felder}
+\input{elektrische_magnetische_felder.tex}
+ 
+\section{Schwingungen und Wellen}
+\input{schwingungen.tex}
+\input{wellen.tex}
+ 
+\section{Quantenphysik}
+\input{quanten.tex}
+ 
+\section{Kernphysik}
+\input{kern.tex}
+
+\section{Chemie}
+\input{chemie.tex}
+ 
+\end{document}
