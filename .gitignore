@@ -4,6 +4,6 @@
 *.out
 *.synctex.gz
 *.xmpi
-elemente
+elemente/
 !elemente/periodictable.asy
 !elemente/periodictable_*.pdf
